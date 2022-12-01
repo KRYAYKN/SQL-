@@ -1,0 +1,27 @@
+
+--DDL -DATA DEFINITION LANGUAGE
+--CREATE - TABLO OLUSTURMA 
+
+CREATE TABLE ogrenciler1
+(
+ogrenci_no char(7),--char uzunlugu belli 
+isim varchar(20),
+soyisim varchar (25),--varchar uzunlugunu bilmiyorsak
+not_ortalama real,--real ondalikli sayi(double gibi)
+kayit_tarihi date	
+	);
+	
+	--VAROLAN TABLODAN YENI BIR TABLO OUSTURMA
+	CREATE TABLE ogrenci_notlari
+	as --benzer tablodaki basliklarla ve data tipleriyle yeni bir tablo olusturmak icin
+	select isim,soyisim,not_ortalama from ogrenciler;
+	
+	--DML--DATA MANUPULATION LANGUAGE(DATABASE E VERI EKLEME)
+	INSERT INTO ogrenciler1 values ('1234567','said','ilhan',85.5,now());
+	INSERT INTO ogrenciler1 values ('1234567','said','ilhan',85.5,'2020-12-11');
+	INSERT INTO ogrenciler1 (isim,soyisim) VALUES ('koray','ayakin');
+	
+	--DQL - DATA QUERY LANG.
+	--SELECT
+	select * from ogrenciler1;
+	-----
